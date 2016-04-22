@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ObjectiveGit
 
 class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
 {
@@ -15,7 +16,6 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     
     override convenience init()
     {
-        
         if let defaultURL = LDCViewDelegate.getBookmarkedURL()
         {
             defaultURL.startAccessingSecurityScopedResource()
@@ -39,6 +39,12 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     }
     
     func listener(listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+        
+        //        let interface = NSXPCInterface(withProtocol:(`protocol`: DataProtocol.self))
+        dispatch_async(dispatch_get_main_queue())
+        {
+            NSLog("should accept??")
+        }
         let interface = NSXPCInterface(withProtocol: LDCViewInterface.self)
         newConnection.exportedInterface = interface
         newConnection.exportedObject = self
@@ -47,7 +53,7 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     }
 
     func getJSON(pathReq:NSURL, result: (NSDictionary?) -> ()) {
-        var myResult: NSDictionary? = nil
+        var myResult = Dictionary<String,AnyObject>()
         
         if self.path == nil
         {
@@ -60,23 +66,103 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
         
         if access(pathReq.fileSystemRepresentation, R_OK) == 0
         {
-            let file_data:NSData? = NSData(contentsOfFile: pathReq.path!)
-            var err:NSError?
-            do
+//            let file_data:NSData? = NSData(contentsOfFile: pathReq.path!)
+//            var err:NSError?
+//            do
+//            {
+//                if let json = try NSJSONSerialization.JSONObjectWithData(file_data!, options: []) as? NSDictionary
+//                {
+//                    try myResult = json as? Dictionary<String,AnyObject>
+//                }
+//            }
+//            catch {
+//            }
+            
+            if let git_repo_path = discover_repository(pathReq)
             {
-                if let json = try NSJSONSerialization.JSONObjectWithData(file_data!, options: []) as? NSDictionary
-                {
-                    myResult = json
+                var filepath = pathReq.path!
+                filepath.removeRange(pathReq.path!.rangeOfString(git_repo_path.URLByDeletingLastPathComponent!.path!)!)
+                filepath.removeAtIndex(filepath.startIndex)
+                NSLog("Going to try and get metadata for ", filepath)
+                let gitrepo = try! GTRepository(URL: git_repo_path)
+                let data_rev = "metadata"
+                let data_commit_id = (filepath=="datafile.txt") ? "b70362ba68e2b91808da90ea00c6e1f0bbd772d9" : "8a5977b1cdf8e1ddae208f7916648e687f177450"
+                
+                
+                let metadata_node_path = get_metadata_node_path(NSURL.fileURLWithPath(filepath))
+                NSLog("metadata_node_path=" + metadata_node_path.relativeString!)
+                let metadata_node = try! gitrepo.lookUpObjectByRevParse(data_rev + ":" + metadata_node_path.relativeString!) as! GTTree
+                for tree in metadata_node.entries! {
+                    
+                    let metadata_key = tree.name
+                    let metadata_path = get_metadata_blob_path(NSURL.fileURLWithPath(filepath), streamname: metadata_key, datacommitid: data_commit_id)
+                    let rev_parse_path = String(format: "%@:%@", data_rev, metadata_path.relativeString!)
+                    NSLog("rev_parse_path=" + rev_parse_path)
+                    if let git_object = try? gitrepo.lookUpObjectByRevParse(rev_parse_path) as? GTBlob
+                    {
+                        myResult[metadata_key] = String(data:git_object!.data()!, encoding: NSUTF8StringEncoding)
+                    }
+
                 }
-            }
-            catch let error as NSError{
-                err = error
+                
+//                myResult!["author"] = String(data: (try! gitrepo.lookUpObjectByRevParse("metadata:datafile.txt/92df1d6a-b6da-5ddb-9055-44349d03203e/author/b70362ba68e2b91808da90ea00c6e1f0bbd772d9") as! GTBlob).data()!, encoding: NSUTF8StringEncoding)
             }
         }
         
         self.path!.stopAccessingSecurityScopedResource()
         
         result(myResult)
+    }
+    
+    func get_metadata_node_path(path:NSURL)->NSURL
+    {
+        let metadata_name = NSUUID(UUIDString: "92df1d6a-b6da-5ddb-9055-44349d03203e")
+        let metadatanodepath = path.URLByAppendingPathComponent(metadata_name!.UUIDString.lowercaseString)
+        return metadatanodepath
+    }
+    func get_metadata_stream_path(path:NSURL,streamname:String)->NSURL
+    {
+        let metadata_node_path = get_metadata_node_path(path)
+        let metadata_stream_path = metadata_node_path.URLByAppendingPathComponent(streamname)
+        return metadata_stream_path
+    }
+    
+    func get_metadata_blob_path(path:NSURL,streamname:String,datacommitid:String)->NSURL
+    {
+        let metadata_stream_path = get_metadata_stream_path(path, streamname:streamname)
+        let metadata_blob_path = metadata_stream_path.URLByAppendingPathComponent(datacommitid)
+        return metadata_blob_path
+    }
+    
+    func discover_repository(base_path: NSURL) -> NSURL? {
+//        var next_path:NSURL = base_path
+        NSLog("discover, base_path:" + base_path.absoluteString)
+        
+        // Get a file manager for checking files exist
+        let manager = NSFileManager.defaultManager()
+        var url_is_dir:ObjCBool = false
+        var git_is_dir: ObjCBool = false
+        if manager.fileExistsAtPath(base_path.path!, isDirectory: &url_is_dir)
+            && url_is_dir
+            && manager.fileExistsAtPath(base_path.URLByAppendingPathComponent(".git").path!, isDirectory: &git_is_dir)
+            && git_is_dir {
+            // We found .git
+            let return_path = base_path.URLByAppendingPathComponent(".git")
+            NSLog("discover, return: " + return_path.absoluteString)
+            return return_path
+        }
+        else
+        {
+            let next_path:NSURL = base_path.URLByDeletingLastPathComponent!
+            if next_path == base_path || next_path.absoluteString.isEmpty
+            {
+                return nil
+            }
+            else
+            {
+                return self.discover_repository(next_path)
+            }
+        }
     }
     
     func getPath(result: (NSURL?) -> ()) {
@@ -87,7 +173,7 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     {
         if access(newPath.fileSystemRepresentation, R_OK) == 0
         {
-            let bookmarkData = LDCViewDelegate.generateSecureBookmark(newPath)
+           let bookmarkData = LDCViewDelegate.generateSecureBookmark(newPath)
             self.path = LDCViewDelegate.getURLFromSecureBookmark(bookmarkData)
             LDCViewDelegate.saveBookmark(bookmarkData)
             return true
@@ -124,11 +210,12 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     static func getURLFromSecureBookmark(bookmarkData: NSData) -> NSURL
     {
         var isStale: ObjCBool = true
-        var bookmarkError:NSError?
+        var bookmarkError:ErrorType?
         var secure_url: NSURL?
         do {
             secure_url = try NSURL(byResolvingBookmarkData: bookmarkData, options: NSURLBookmarkResolutionOptions.WithSecurityScope, relativeToURL: nil, bookmarkDataIsStale: &isStale)
-        } catch let error as NSError {
+        }
+        catch {// let error as NSError {
             bookmarkError = error
             secure_url = nil
         }
@@ -138,11 +225,11 @@ class LDCViewDelegate: NSObject, NSXPCListenerDelegate, LDCViewInterface
     
     static func generateSecureBookmark(newPath: NSURL) -> NSData
     {
-        var bookmarkError: NSError?
+        var bookmarkError: ErrorType?//NSError?
         var bookmarkData: NSData?
         do {
             bookmarkData = try newPath.bookmarkDataWithOptions([NSURLBookmarkCreationOptions.WithSecurityScope, NSURLBookmarkCreationOptions.SecurityScopeAllowOnlyReadAccess], includingResourceValuesForKeys: nil, relativeToURL: nil)
-        } catch let error as NSError {
+        } catch {//let error as NSError {
             bookmarkError = error
             bookmarkData = nil
         }
@@ -190,8 +277,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func setCurrentFolderMenuItem()
     {
-        self.currentFolderMenuItem.title = "Monitoring " + ldcviewdelegate.path!.path!
-    }
+        var menuTitle:String
+        if let monitoredPath = ldcviewdelegate.path {
+             menuTitle = "Monitoring " + monitoredPath.path!
+        }
+        else{
+             menuTitle = "Path not set"
+        }
+        self.currentFolderMenuItem.title = menuTitle
+}
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
@@ -223,9 +317,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+        statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
         statusItem!.menu = statusMenu
-        statusItem!.title = "M"
+        statusItem!.button!.title = "M"
         statusItem!.highlightMode = true
     }
 

@@ -71,7 +71,7 @@ class FinderSync: FIFinderSync {
         NSLog("FinderSync() launched from %@", NSBundle.mainBundle().bundlePath)
 
         let interface = NSXPCInterface(withProtocol: LDCViewInterface.self)
-        let conn = NSXPCConnection(machServiceName: "29547XHFYR.uk.ac.soton.ses.ldcview.ldcviewlistener", options: NSXPCConnectionOptions())
+        let conn = NSXPCConnection(machServiceName: "29547XHFYR.uk.ac.soton.ses.ldcview.ldcviewlistener", options: NSXPCConnectionOptions(rawValue: 0))
         conn.remoteObjectInterface = interface
         conn.resume()
         let remote = conn.remoteObjectProxy as! LDCViewInterface
@@ -79,13 +79,14 @@ class FinderSync: FIFinderSync {
         remote.getPath()
         {
             (configuredPath: NSURL?) -> () in
+            NSLog("ldcview-debug: hello 1")
             dispatch_sync(dispatch_get_main_queue())
             {
+                NSLog("ldcview-debug: hello")
+                self.myFolderURL = configuredPath
                 // Set up the directory we are syncing.
-//                precondition(1 == 2)
-                if configuredPath != nil
+                if self.myFolderURL != nil
                 {
-                    self.myFolderURL = configuredPath
                     NSLog("ldcview-debug:" + self.myFolderURL!.path!)
                     FIFinderSyncController.defaultController().directoryURLs = [self.myFolderURL!]
                 }
@@ -110,22 +111,22 @@ class FinderSync: FIFinderSync {
 
     // MARK: - Primary Finder Sync protocol methods
 
-    override func beginObservingDirectoryAtURL(url: NSURL) {
-        // The user is now seeing the container's contents.
-        // If they see it in more than one view at a time, we're only told once.
-        NSLog("beginObservingDirectoryAtURL: %@", url.filePathURL!)
-        
-        if let metadata_file = getMetadataFilePath(url)
-        {
-            self.showData(metadata_file)
-        }
-    }
-
-
-    override func endObservingDirectoryAtURL(url: NSURL) {
-        // The user is no longer seeing the container's contents.
-        NSLog("endObservingDirectoryAtURL: %@", url.filePathURL!)
-    }
+//    override func beginObservingDirectoryAtURL(url: NSURL) {
+//        // The user is now seeing the container's contents.
+//        // If they see it in more than one view at a time, we're only told once.
+//        NSLog("beginObservingDirectoryAtURL: %@", url.filePathURL!)
+//        
+//        if let metadata_file = getMetadataFilePath(url)
+//        {
+//            self.showData(metadata_file)
+//        }
+//    }
+//
+//
+//    override func endObservingDirectoryAtURL(url: NSURL) {
+//        // The user is no longer seeing the container's contents.
+//        NSLog("endObservingDirectoryAtURL: %@", url.filePathURL!)
+//    }
 
     override func requestBadgeIdentifierForURL(url: NSURL) {
         NSLog("requestBadgeIdentifierForURL: %@", url.filePathURL!)
@@ -156,31 +157,65 @@ class FinderSync: FIFinderSync {
     override var toolbarItemImage: NSImage {
         return NSImage(named: imageNameMetadataExists)!
     }
+    
+    var menuitems:[NSURL]?
+    var menutarget:NSURL?
 
     override func menuForMenuKind(menuKind: FIMenuKind) -> NSMenu {
         // Produce a menu for the extension.
         let menu = NSMenu(title: "")
-        menu.addItemWithTitle("Show Associated Metadata", action: "showAssociatedMetadata:", keyEquivalent: "")
+
+        let menuitem = menu.addItemWithTitle("Show Associated Metadata", action: #selector(FinderSync.showAssociatedMetadata(_:)), keyEquivalent: "")
+
+//            let data:Dictionary<String,AnyObject> = ["target":target, "items": items]
+//            item.representedObject = data
+//            menuitems = items
+//            menutarget = target
+
+//        if
+//            let target = FIFinderSyncController.defaultController().targetedURL(),
+//            let items = FIFinderSyncController.defaultController().selectedItemURLs()
+//        {
+//            NSLog("menuForMenuKind: menu item: %@, target = %@, items = ", menuitem!.title, target.filePathURL!)
+//            for obj: AnyObject in items
+//            {
+//                let obj_url = obj as! NSURL
+//                NSLog("menuForMenuKind: %@",obj_url.path!)
+//            }
+//        }
+
         return menu
     }
 
     @IBAction func showAssociatedMetadata(sender: AnyObject?) {
-        let target = FIFinderSyncController.defaultController().targetedURL()
-        let items = FIFinderSyncController.defaultController().selectedItemURLs()
-
-        let item = sender as! NSMenuItem
-        NSLog("sampleAction: menu item: %@, target = %@, items = ", item.title, target!.filePathURL!)
-        for obj: AnyObject in items!
+        if
+            let menuitem = sender as? NSMenuItem,
+            let target = FIFinderSyncController.defaultController().targetedURL(),
+            let items = FIFinderSyncController.defaultController().selectedItemURLs()
+        {
+//        NSLog("showAssociatedMetadata: 2," + String("%@", item.representedObject == nil))
+//        let representedObject = item.representedObject as! Dictionary<String,AnyObject>
+//        NSLog("showAssociatedMetadata: 3")
+//        let target = representedObject["target"] as! NSURL
+//        NSLog("showAssociatedMetadata: 4")
+//        let items = representedObject["items"] as! [NSURL]
+//        let items=menuitems!
+//        let target=menutarget!
+//                NSLog("showAssociatedMetadata: 5")
+        NSLog("sampleAction: menu item: %@, target = %@, items = ", menuitem.title, target.filePathURL!)
+        for obj: AnyObject in items
         {
             let obj_url = obj as! NSURL
             if let metadata_file = getMetadataFilePath(obj_url)
             {
-                self.showData(metadata_file)
+                NSLog("Trying to display data for: %@",obj_url.path!)
+                self.showData(obj_url)//metadata_file
             }
             else
             {
-                NSLog("Could not get metadata @%", obj_url.path!)
+                NSLog("Could not get metadata for: %@", obj_url.path!)
             }
+        }
         }
     }
 
@@ -224,12 +259,13 @@ class FinderSync: FIFinderSync {
         
         if !url_is_dir
         {
-            // Delete the file name
+            // Delete the file name only if it is a file
             metadata_dir_parent = metadata_dir_parent.URLByDeletingLastPathComponent!
         }
         
         // Work out where the metadata folder is. Generate the metadata folder path from the parent.
-        var metadata_dir_path: NSURL = metadata_dir_parent.URLByAppendingPathComponent("_metadata")
+        let metadata_dir_name = ".git"
+        var metadata_dir_path: NSURL = metadata_dir_parent.URLByAppendingPathComponent(metadata_dir_name)
         var metadata_dir_exists:Bool = false
         
         // Walk up the tree until we find a metadata folder
@@ -237,7 +273,7 @@ class FinderSync: FIFinderSync {
         while (!metadata_dir_exists) && ((metadata_dir_parent.path!).characters.count >= (self.myFolderURL!.path!).characters.count)
         {
             // Stop if we find that one of our parents is a metadata folder
-            if(metadata_dir_parent.lastPathComponent == "_metadata")
+            if(metadata_dir_parent.lastPathComponent == metadata_dir_name)
             {
                 //NSLog("requestBadgeIdentifierForURL: ignoring _metadata")
                 return nil
@@ -251,7 +287,7 @@ class FinderSync: FIFinderSync {
             if !metadata_dir_exists
             {
                 metadata_dir_parent = metadata_dir_parent.URLByDeletingLastPathComponent!
-                metadata_dir_path = metadata_dir_parent.URLByAppendingPathComponent("_metadata")
+                metadata_dir_path = metadata_dir_parent.URLByAppendingPathComponent(metadata_dir_name)
             }
         }
         
@@ -277,7 +313,6 @@ class FinderSync: FIFinderSync {
         let url_relative_to_metadata_base = NSURL(string: request_url.path!.substringFromIndex(relative_path_start), relativeToURL:metadata_dir_parent)!
         
         // Look in the metadata folder for a metadata file
-        
         var url_metadata_file:NSURL
         if url_is_dir
         {
