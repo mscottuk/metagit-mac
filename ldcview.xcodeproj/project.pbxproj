@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D1E53E11B3B0AA700D333BA /* m1.eps in Resources */ = {isa = PBXBuildFile; fileRef = 4D1E53E01B3B0AA700D333BA /* m1.eps */; };
+		4D6B15981C5696F0008E20BD /* ldcview-extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4D7530941B30803300F58988 /* ldcview-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4D7530751B30455E00F58988 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7530741B30455E00F58988 /* AppDelegate.swift */; };
+		4D7530771B30455E00F58988 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7530761B30455E00F58988 /* Images.xcassets */; };
+		4D75307A1B30455E00F58988 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D7530781B30455E00F58988 /* MainMenu.xib */; };
+		4D75309A1B30803300F58988 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7530991B30803300F58988 /* FinderSync.swift */; };
+		4D7530B01B331EB200F58988 /* xpcinterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7530AF1B331EB200F58988 /* xpcinterfaces.swift */; };
+		4D7530B31B3327FF00F58988 /* xpcinterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7530AF1B331EB200F58988 /* xpcinterfaces.swift */; };
+		4DF1ABC31B34555F00E72EB0 /* MetadataWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1ABC21B34555F00E72EB0 /* MetadataWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D6B15991C5696F0008E20BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D7530671B30455E00F58988 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D7530931B30803300F58988;
+			remoteInfo = "ldcview-extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D6B159B1C5696F0008E20BD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4D6B15981C5696F0008E20BD /* ldcview-extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4D1E53E01B3B0AA700D333BA /* m1.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = m1.eps; sourceTree = "<group>"; };
+		4D75306F1B30455E00F58988 /* ldcview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ldcview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D7530731B30455E00F58988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7530741B30455E00F58988 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4D7530761B30455E00F58988 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D7530791B30455E00F58988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4D75308F1B30458600F58988 /* ldcview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ldcview.entitlements; sourceTree = "<group>"; };
+		4D7530941B30803300F58988 /* ldcview-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ldcview-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D7530971B30803300F58988 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7530981B30803300F58988 /* ldcview_extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ldcview_extension.entitlements; sourceTree = "<group>"; };
+		4D7530991B30803300F58988 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		4D7530AF1B331EB200F58988 /* xpcinterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xpcinterfaces.swift; sourceTree = "<group>"; };
+		4DF1ABC21B34555F00E72EB0 /* MetadataWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MetadataWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D75306C1B30455E00F58988 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D7530911B30803300F58988 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D7530661B30455E00F58988 = {
+			isa = PBXGroup;
+			children = (
+				4D7530AE1B331DB000F58988 /* Shared */,
+				4D7530711B30455E00F58988 /* ldcview */,
+				4D7530951B30803300F58988 /* ldcview-extension */,
+				4D7530701B30455E00F58988 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D7530701B30455E00F58988 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D75306F1B30455E00F58988 /* ldcview.app */,
+				4D7530941B30803300F58988 /* ldcview-extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D7530711B30455E00F58988 /* ldcview */ = {
+			isa = PBXGroup;
+			children = (
+				4D75308F1B30458600F58988 /* ldcview.entitlements */,
+				4D7530741B30455E00F58988 /* AppDelegate.swift */,
+				4D7530761B30455E00F58988 /* Images.xcassets */,
+				4D7530781B30455E00F58988 /* MainMenu.xib */,
+				4D7530721B30455E00F58988 /* Supporting Files */,
+			);
+			path = ldcview;
+			sourceTree = "<group>";
+		};
+		4D7530721B30455E00F58988 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D7530731B30455E00F58988 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D7530951B30803300F58988 /* ldcview-extension */ = {
+			isa = PBXGroup;
+			children = (
+				4D1E53E01B3B0AA700D333BA /* m1.eps */,
+				4D7530991B30803300F58988 /* FinderSync.swift */,
+				4D7530961B30803300F58988 /* Supporting Files */,
+				4DF1ABC21B34555F00E72EB0 /* MetadataWindow.xib */,
+			);
+			path = "ldcview-extension";
+			sourceTree = "<group>";
+		};
+		4D7530961B30803300F58988 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D7530971B30803300F58988 /* Info.plist */,
+				4D7530981B30803300F58988 /* ldcview_extension.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D7530AE1B331DB000F58988 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4D7530AF1B331EB200F58988 /* xpcinterfaces.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D75306E1B30455E00F58988 /* ldcview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D7530891B30455E00F58988 /* Build configuration list for PBXNativeTarget "ldcview" */;
+			buildPhases = (
+				4D75306B1B30455E00F58988 /* Sources */,
+				4D75306C1B30455E00F58988 /* Frameworks */,
+				4D75306D1B30455E00F58988 /* Resources */,
+				4D6B159B1C5696F0008E20BD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D6B159A1C5696F0008E20BD /* PBXTargetDependency */,
+			);
+			name = ldcview;
+			productName = ldcview;
+			productReference = 4D75306F1B30455E00F58988 /* ldcview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4D7530931B30803300F58988 /* ldcview-extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D75309E1B30803300F58988 /* Build configuration list for PBXNativeTarget "ldcview-extension" */;
+			buildPhases = (
+				4D7530901B30803300F58988 /* Sources */,
+				4D7530911B30803300F58988 /* Frameworks */,
+				4D7530921B30803300F58988 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ldcview-extension";
+			productName = "ldcview-extension";
+			productReference = 4D7530941B30803300F58988 /* ldcview-extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D7530671B30455E00F58988 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Mark Scott";
+				TargetAttributes = {
+					4D75306E1B30455E00F58988 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 29547XHFYR;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					4D7530931B30803300F58988 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 29547XHFYR;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 4D75306A1B30455E00F58988 /* Build configuration list for PBXProject "ldcview" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D7530661B30455E00F58988;
+			productRefGroup = 4D7530701B30455E00F58988 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D75306E1B30455E00F58988 /* ldcview */,
+				4D7530931B30803300F58988 /* ldcview-extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D75306D1B30455E00F58988 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7530771B30455E00F58988 /* Images.xcassets in Resources */,
+				4D75307A1B30455E00F58988 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D7530921B30803300F58988 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D1E53E11B3B0AA700D333BA /* m1.eps in Resources */,
+				4DF1ABC31B34555F00E72EB0 /* MetadataWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D75306B1B30455E00F58988 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7530751B30455E00F58988 /* AppDelegate.swift in Sources */,
+				4D7530B01B331EB200F58988 /* xpcinterfaces.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D7530901B30803300F58988 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7530B31B3327FF00F58988 /* xpcinterfaces.swift in Sources */,
+				4D75309A1B30803300F58988 /* FinderSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D6B159A1C5696F0008E20BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D7530931B30803300F58988 /* ldcview-extension */;
+			targetProxy = 4D6B15991C5696F0008E20BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4D7530781B30455E00F58988 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D7530791B30455E00F58988 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D7530871B30455E00F58988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4D7530881B30455E00F58988 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4D75308A1B30455E00F58988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ldcview/ldcview.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = ldcview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.soton.ses.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4D75308B1B30455E00F58988 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ldcview/ldcview.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = ldcview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.soton.ses.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4D75309F1B30803300F58988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "ldcview-extension/ldcview_extension.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ldcview-extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.soton.ses.ldcview.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4D7530A01B30803300F58988 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "ldcview-extension/ldcview_extension.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "ldcview-extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.ac.soton.ses.ldcview.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D75306A1B30455E00F58988 /* Build configuration list for PBXProject "ldcview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D7530871B30455E00F58988 /* Debug */,
+				4D7530881B30455E00F58988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D7530891B30455E00F58988 /* Build configuration list for PBXNativeTarget "ldcview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D75308A1B30455E00F58988 /* Debug */,
+				4D75308B1B30455E00F58988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D75309E1B30803300F58988 /* Build configuration list for PBXNativeTarget "ldcview-extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D75309F1B30803300F58988 /* Debug */,
+				4D7530A01B30803300F58988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D7530671B30455E00F58988 /* Project object */;
+}
