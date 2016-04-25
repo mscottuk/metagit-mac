@@ -129,19 +129,38 @@ class FinderSync: FIFinderSync {
 //    }
 
     override func requestBadgeIdentifierForURL(url: NSURL) {
-        NSLog("requestBadgeIdentifierForURL: %@", url.filePathURL!)
-        
-        if let metadata_file = self.getMetadataFilePath(url)
+        NSLog("requestBadgeIdentifierForURL: %@", url.path!)
+        let interface = NSXPCInterface(withProtocol: LDCViewInterface.self)
+        let conn = NSXPCConnection(machServiceName: "29547XHFYR.uk.ac.soton.ses.ldcview.ldcviewlistener", options: NSXPCConnectionOptions())
+        conn.remoteObjectInterface = interface
+        conn.resume()
+        let remote = conn.remoteObjectProxy as! LDCViewInterface
+        remote.metadataExists(url)
         {
-            // Get a file manager for checking files exist
-            let manager = NSFileManager.defaultManager()
-
-            if manager.fileExistsAtPath(metadata_file.path!)
+            (exists:Bool) -> () in
+            dispatch_sync(dispatch_get_main_queue())
             {
-                NSLog("requestBadgeIdentifierForURL: metadata found at %@", metadata_file.absoluteString)
-                FIFinderSyncController.defaultController().setBadgeIdentifier("MetadataExists", forURL: url)
+                if(exists)
+                {
+                    NSLog("requestBadgeIdentifierForURL: metadata found at %@", url.absoluteString)
+                    FIFinderSyncController.defaultController().setBadgeIdentifier("MetadataExists", forURL: url)
+                }
             }
         }
+
+        
+//        if let metadata_file = self.getMetadataFilePath(url)
+//        {
+//            NSLog("Received %@", metadata_file)
+//            // Get a file manager for checking files exist
+//            let manager = NSFileManager.defaultManager()
+//
+//            if manager.fileExistsAtPath(metadata_file.path!)
+//            {
+//                NSLog("requestBadgeIdentifierForURL: metadata found at %@", metadata_file.absoluteString)
+//                FIFinderSyncController.defaultController().setBadgeIdentifier("MetadataExists", forURL: url)
+//            }
+//        }
     }
 
     // MARK: - Menu and toolbar item support
@@ -293,8 +312,13 @@ class FinderSync: FIFinderSync {
         
         if !metadata_dir_exists
         {
-            NSLog("requestBadgeIdentifierForURL: metadata_dir does not exist")
+            NSLog("requestBadgeIdentifierForURL: metadata dir does not exist: %@", request_url.path!)
             return nil
+        }
+        else
+        {
+            NSLog("So far I have %@", metadata_dir_path.filePathURL!)
+            return metadata_dir_path
         }
         
         // Generate a relative path for the requested URL so we can find it in the metadata folder

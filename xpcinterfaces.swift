@@ -10,4 +10,5 @@ import Foundation
 @objc protocol LDCViewInterface {
     func getJSON(pathReq: NSURL, result: (NSDictionary?) -> () )
     func getPath(result: (NSURL?) -> ())
+    func metadataExists(pathReq: NSURL, result: (Bool) -> () )
 }
