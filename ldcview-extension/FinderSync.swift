@@ -79,10 +79,8 @@ class FinderSync: FIFinderSync {
         remote.getPath()
         {
             (configuredPath: NSURL?) -> () in
-            NSLog("ldcview-debug: hello 1")
             dispatch_sync(dispatch_get_main_queue())
             {
-                NSLog("ldcview-debug: hello")
                 self.myFolderURL = configuredPath
                 // Set up the directory we are syncing.
                 if self.myFolderURL != nil
@@ -103,7 +101,6 @@ class FinderSync: FIFinderSync {
         self.windowController = NSWindowController(windowNibName: "MetadataWindow", owner: self)
                 
         NSLog("Main thread=%@", NSThread.isMainThread() ? "true":"false")
-
         
         NSLog("init() done")
     
@@ -251,11 +248,13 @@ class FinderSync: FIFinderSync {
                 dispatch_sync(dispatch_get_main_queue())
                 {
                     NSLog("Setting data source")
-                    NSLog("json %@ nil", json==nil ? " true" : "false")
+                    NSLog("json==nil is %@", json==nil ? " true" : "false")
                     self.windowController!.showWindow(self)
+                    self.window.makeKeyAndOrderFront(self)
                     self.metadataDataSource = self.myTableView.dataSource() as? MetadataDataSource
                     self.metadataDataSource!.dataDict = json
                     self.myTableView.reloadData()
+                    
                     NSLog("Data source set")
                 }
         }
