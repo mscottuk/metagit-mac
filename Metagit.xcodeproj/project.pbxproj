@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D013F061D2453D60024DADA /* ObjectiveGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D974B941D22D2DD005DCA35 /* ObjectiveGit.framework */; };
+		4D013F071D2453D60024DADA /* ObjectiveGit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D974B941D22D2DD005DCA35 /* ObjectiveGit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D974B811D227CC2005DCA35 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D974B801D227CC2005DCA35 /* MainMenu.xib */; };
+		4D974B831D2281D3005DCA35 /* MetadataExists.eps in Resources */ = {isa = PBXBuildFile; fileRef = 4D974B821D2281D3005DCA35 /* MetadataExists.eps */; };
+		4D974B8F1D2286A6005DCA35 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D974B8E1D2286A6005DCA35 /* main.swift */; };
+		4D974B911D228834005DCA35 /* HelperXPCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D974B901D228834005DCA35 /* HelperXPCDelegate.swift */; };
+		4D974B931D22D18F005DCA35 /* MetadataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D974B921D22D18F005DCA35 /* MetadataEntry.swift */; };
+		4D974B991D22D3B8005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4D974B881D228261005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4D974B9A1D22D4D0005DCA35 /* LoginItemXPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97261D216DAF0077E0F4 /* LoginItemXPCInterface.swift */; };
+		4D974B9D1D22EA18005DCA35 /* LoginItemXPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97261D216DAF0077E0F4 /* LoginItemXPCInterface.swift */; };
+		4D974B9E1D22EA87005DCA35 /* MetagitXPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97281D216DC80077E0F4 /* MetagitXPCInterface.swift */; };
+		4D974BA01D23F9EB005DCA35 /* Metagit.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4D974B9F1D23F9EB005DCA35 /* Metagit.entitlements */; };
+		4D974BA21D23FA10005DCA35 /* LoginItem.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 4D974BA11D23FA10005DCA35 /* LoginItem.entitlements */; };
+		4DC4F4A61D2547C5005D5D94 /* MetadataDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC4F4A51D2547C5005D5D94 /* MetadataDataSource.swift */; };
+		4DEE97191D2162240077E0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97181D2162240077E0F4 /* AppDelegate.swift */; };
+		4DEE971B1D2162240077E0F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEE971A1D2162240077E0F4 /* Assets.xcassets */; };
+		4DEE97271D216DAF0077E0F4 /* LoginItemXPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97261D216DAF0077E0F4 /* LoginItemXPCInterface.swift */; };
+		4DEE97291D216DC80077E0F4 /* MetagitXPCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97281D216DC80077E0F4 /* MetagitXPCInterface.swift */; };
+		4DEE97331D21704C0077E0F4 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEE97321D21704C0077E0F4 /* FinderSync.swift */; };
+		4DEE97371D21704C0077E0F4 /* FinderExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4DEE972E1D21704C0077E0F4 /* FinderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D974B961D22D379005DCA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DEE970D1D2162230077E0F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D974B871D228261005DCA35;
+			remoteInfo = LoginItem;
+		};
+		4DEE97351D21704C0077E0F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DEE970D1D2162230077E0F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DEE972D1D21704C0077E0F4;
+			remoteInfo = FinderExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D013F081D2453D60024DADA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D013F071D2453D60024DADA /* ObjectiveGit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D974B981D22D3B0005DCA35 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				4D974B991D22D3B8005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE973B1D21704C0077E0F4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4DEE97371D21704C0077E0F4 /* FinderExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4D974B801D227CC2005DCA35 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		4D974B821D2281D3005DCA35 /* MetadataExists.eps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MetadataExists.eps; sourceTree = "<group>"; };
+		4D974B881D228261005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D974B8A1D228261005DCA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D974B8E1D2286A6005DCA35 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D974B901D228834005DCA35 /* HelperXPCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperXPCDelegate.swift; sourceTree = "<group>"; };
+		4D974B921D22D18F005DCA35 /* MetadataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataEntry.swift; sourceTree = "<group>"; };
+		4D974B941D22D2DD005DCA35 /* ObjectiveGit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveGit.framework; sourceTree = "<group>"; };
+		4D974B9F1D23F9EB005DCA35 /* Metagit.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Metagit.entitlements; sourceTree = "<group>"; };
+		4D974BA11D23FA10005DCA35 /* LoginItem.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LoginItem.entitlements; sourceTree = "<group>"; };
+		4DC4F4A51D2547C5005D5D94 /* MetadataDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataDataSource.swift; sourceTree = "<group>"; };
+		4DEE97151D2162240077E0F4 /* Metagit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metagit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEE97181D2162240077E0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4DEE971A1D2162240077E0F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4DEE971F1D2162240077E0F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DEE97261D216DAF0077E0F4 /* LoginItemXPCInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItemXPCInterface.swift; sourceTree = "<group>"; };
+		4DEE97281D216DC80077E0F4 /* MetagitXPCInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetagitXPCInterface.swift; sourceTree = "<group>"; };
+		4DEE972E1D21704C0077E0F4 /* FinderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FinderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEE97311D21704C0077E0F4 /* FinderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FinderExtension.entitlements; sourceTree = "<group>"; };
+		4DEE97321D21704C0077E0F4 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		4DEE97341D21704C0077E0F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D974B851D228261005DCA35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE97121D2162240077E0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D013F061D2453D60024DADA /* ObjectiveGit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE972B1D21704C0077E0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D974B891D228261005DCA35 /* LoginItem */ = {
+			isa = PBXGroup;
+			children = (
+				4D974B8A1D228261005DCA35 /* Info.plist */,
+				4D974B8E1D2286A6005DCA35 /* main.swift */,
+				4D974B901D228834005DCA35 /* HelperXPCDelegate.swift */,
+				4D974BA11D23FA10005DCA35 /* LoginItem.entitlements */,
+			);
+			path = LoginItem;
+			sourceTree = "<group>";
+		};
+		4D974B9C1D22E264005DCA35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D974B941D22D2DD005DCA35 /* ObjectiveGit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DEE970C1D2162230077E0F4 = {
+			isa = PBXGroup;
+			children = (
+				4D974B9C1D22E264005DCA35 /* Frameworks */,
+				4DEE97251D21657F0077E0F4 /* Shared */,
+				4DEE97171D2162240077E0F4 /* Metagit */,
+				4DEE972F1D21704C0077E0F4 /* FinderExtension */,
+				4D974B891D228261005DCA35 /* LoginItem */,
+				4DEE97161D2162240077E0F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DEE97161D2162240077E0F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE97151D2162240077E0F4 /* Metagit.app */,
+				4DEE972E1D21704C0077E0F4 /* FinderExtension.appex */,
+				4D974B881D228261005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DEE97171D2162240077E0F4 /* Metagit */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE97181D2162240077E0F4 /* AppDelegate.swift */,
+				4DEE971A1D2162240077E0F4 /* Assets.xcassets */,
+				4DEE971F1D2162240077E0F4 /* Info.plist */,
+				4D974B801D227CC2005DCA35 /* MainMenu.xib */,
+				4D974B9F1D23F9EB005DCA35 /* Metagit.entitlements */,
+				4DC4F4A51D2547C5005D5D94 /* MetadataDataSource.swift */,
+			);
+			path = Metagit;
+			sourceTree = "<group>";
+		};
+		4DEE97251D21657F0077E0F4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE97261D216DAF0077E0F4 /* LoginItemXPCInterface.swift */,
+				4DEE97281D216DC80077E0F4 /* MetagitXPCInterface.swift */,
+				4D974B921D22D18F005DCA35 /* MetadataEntry.swift */,
+			);
+			name = Shared;
+			path = metagit/Shared;
+			sourceTree = "<group>";
+		};
+		4DEE972F1D21704C0077E0F4 /* FinderExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4D974B821D2281D3005DCA35 /* MetadataExists.eps */,
+				4DEE97321D21704C0077E0F4 /* FinderSync.swift */,
+				4DEE97341D21704C0077E0F4 /* Info.plist */,
+				4DEE97301D21704C0077E0F4 /* Supporting Files */,
+			);
+			path = FinderExtension;
+			sourceTree = "<group>";
+		};
+		4DEE97301D21704C0077E0F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DEE97311D21704C0077E0F4 /* FinderExtension.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D974B871D228261005DCA35 /* LoginItem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D974B8B1D228261005DCA35 /* Build configuration list for PBXNativeTarget "LoginItem" */;
+			buildPhases = (
+				4D974B841D228261005DCA35 /* Sources */,
+				4D974B851D228261005DCA35 /* Frameworks */,
+				4D974B861D228261005DCA35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoginItem;
+			productName = LoginItem;
+			productReference = 4D974B881D228261005DCA35 /* 29547XHFYR.uk.ac.soton.Metagit.LoginItem.app */;
+			productType = "com.apple.product-type.bundle";
+		};
+		4DEE97141D2162240077E0F4 /* Metagit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEE97221D2162240077E0F4 /* Build configuration list for PBXNativeTarget "Metagit" */;
+			buildPhases = (
+				4DEE97111D2162240077E0F4 /* Sources */,
+				4DEE97121D2162240077E0F4 /* Frameworks */,
+				4DEE97131D2162240077E0F4 /* Resources */,
+				4DEE973B1D21704C0077E0F4 /* Embed App Extensions */,
+				4D974B981D22D3B0005DCA35 /* CopyFiles */,
+				4D013F081D2453D60024DADA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D974B971D22D379005DCA35 /* PBXTargetDependency */,
+				4DEE97361D21704C0077E0F4 /* PBXTargetDependency */,
+			);
+			name = Metagit;
+			productName = metagit;
+			productReference = 4DEE97151D2162240077E0F4 /* Metagit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4DEE972D1D21704C0077E0F4 /* FinderExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEE97381D21704C0077E0F4 /* Build configuration list for PBXNativeTarget "FinderExtension" */;
+			buildPhases = (
+				4DEE972A1D21704C0077E0F4 /* Sources */,
+				4DEE972B1D21704C0077E0F4 /* Frameworks */,
+				4DEE972C1D21704C0077E0F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinderExtension;
+			productName = FinderExtension;
+			productReference = 4DEE972E1D21704C0077E0F4 /* FinderExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DEE970D1D2162230077E0F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Mark;
+				TargetAttributes = {
+					4D974B871D228261005DCA35 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4DEE97141D2162240077E0F4 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4DEE972D1D21704C0077E0F4 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 4DEE97101D2162230077E0F4 /* Build configuration list for PBXProject "Metagit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DEE970C1D2162230077E0F4;
+			productRefGroup = 4DEE97161D2162240077E0F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DEE97141D2162240077E0F4 /* Metagit */,
+				4DEE972D1D21704C0077E0F4 /* FinderExtension */,
+				4D974B871D228261005DCA35 /* LoginItem */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D974B861D228261005DCA35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D974BA21D23FA10005DCA35 /* LoginItem.entitlements in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE97131D2162240077E0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D974BA01D23F9EB005DCA35 /* Metagit.entitlements in Resources */,
+				4DEE971B1D2162240077E0F4 /* Assets.xcassets in Resources */,
+				4D974B811D227CC2005DCA35 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE972C1D21704C0077E0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D974B831D2281D3005DCA35 /* MetadataExists.eps in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D974B841D228261005DCA35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D974B9A1D22D4D0005DCA35 /* LoginItemXPCInterface.swift in Sources */,
+				4D974B911D228834005DCA35 /* HelperXPCDelegate.swift in Sources */,
+				4D974B8F1D2286A6005DCA35 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE97111D2162240077E0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DEE97291D216DC80077E0F4 /* MetagitXPCInterface.swift in Sources */,
+				4D974B931D22D18F005DCA35 /* MetadataEntry.swift in Sources */,
+				4DC4F4A61D2547C5005D5D94 /* MetadataDataSource.swift in Sources */,
+				4DEE97191D2162240077E0F4 /* AppDelegate.swift in Sources */,
+				4DEE97271D216DAF0077E0F4 /* LoginItemXPCInterface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEE972A1D21704C0077E0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D974B9E1D22EA87005DCA35 /* MetagitXPCInterface.swift in Sources */,
+				4D974B9D1D22EA18005DCA35 /* LoginItemXPCInterface.swift in Sources */,
+				4DEE97331D21704C0077E0F4 /* FinderSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D974B971D22D379005DCA35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D974B871D228261005DCA35 /* LoginItem */;
+			targetProxy = 4D974B961D22D379005DCA35 /* PBXContainerItemProxy */;
+		};
+		4DEE97361D21704C0077E0F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DEE972D1D21704C0077E0F4 /* FinderExtension */;
+			targetProxy = 4DEE97351D21704C0077E0F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4D974B8C1D228261005DCA35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = LoginItem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_NAME = "29547XHFYR.uk.ac.soton.Metagit.$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4D974B8D1D228261005DCA35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = LoginItem/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_NAME = "29547XHFYR.uk.ac.soton.Metagit.$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4DEE97201D2162240077E0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4DEE97211D2162240077E0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4DEE97231D2162240077E0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = Metagit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.soton.Metagit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4DEE97241D2162240077E0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = Metagit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.soton.Metagit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4DEE97391D21704C0077E0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.soton.Metagit.FinderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4DEE973A1D21704C0077E0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Mark Scott (29547XHFYR)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FinderExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.soton.Metagit.FinderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D974B8B1D228261005DCA35 /* Build configuration list for PBXNativeTarget "LoginItem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D974B8C1D228261005DCA35 /* Debug */,
+				4D974B8D1D228261005DCA35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEE97101D2162230077E0F4 /* Build configuration list for PBXProject "Metagit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEE97201D2162240077E0F4 /* Debug */,
+				4DEE97211D2162240077E0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEE97221D2162240077E0F4 /* Build configuration list for PBXNativeTarget "Metagit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEE97231D2162240077E0F4 /* Debug */,
+				4DEE97241D2162240077E0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEE97381D21704C0077E0F4 /* Build configuration list for PBXNativeTarget "FinderExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEE97391D21704C0077E0F4 /* Debug */,
+				4DEE973A1D21704C0077E0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4DEE970D1D2162230077E0F4 /* Project object */;
+}
