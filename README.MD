@@ -1,6 +1,6 @@
 #Metagit-mac
 
-This is a read-only tool which displays metadata defined using the [Metagit-py](http://github.com/mscottuk/metagit-py) tool.
+This is a read-only tool which displays metadata defined using the [metagit-py](http://github.com/mscottuk/metagit-py) tool. This is a prototype version of a tool to demonstrate the Metagit model.
 
 ## About Metagit
 
