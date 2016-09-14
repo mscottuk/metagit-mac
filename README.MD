@@ -1,6 +1,6 @@
 #Metagit-mac
 
-This is a read-only tool which displays metadata defined using the [metagit-py](http://github.com/mscottuk/metagit-py) tool. This is a prototype version of a tool to demonstrate the Metagit model.
+This is a read-only tool which displays metadata defined using the [metagit-py](https://github.com/mscottuk/metagit-py) tool. This is a prototype version of a tool to demonstrate the Metagit model.
 
 ## About Metagit
 
@@ -25,3 +25,9 @@ This is a prototype version of a tool to demonstrate this model. The findings ha
 
 Scott, Mark, Steven J. Johnston, and Simon J. Cox (2016). "Metagit: Decentralised Metadata Management With Git". In: *Information Systems*. DOI: [`10.1016/j.is.2016.09.002`](http://dx.doi.org/10.1016/j.is.2016.09.002). Forthcoming.
 
+## Requirements
+
+The tool has the following prerequisites:
+
+* [libgit2](https://libgit2.github.com) - can be installed using MacPorts or HomeBrew
+* [ObjectiveGit](https://github.com/libgit2/objective-git) - can be installed using HomeBrew
