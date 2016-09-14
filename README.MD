@@ -21,7 +21,7 @@ Propagation rules, which define when metadata follows a file after modifications
 * Branching does not affect metadata propagation and metadata should propagate to all branches equally
 * Merging of branches should stop metadata from propagating because it is unclear which branch's metadata will apply to each file
 
-This is a prototype version of a tool to demonstrate this model. The findings have been detailed in the following publication:
+This is a prototype version of a tool to demonstrate this model. The findings have been detailed in the following publication (not yet published):
 
 Scott, Mark, Steven J. Johnston, and Simon J. Cox (2016). "Metagit: Decentralised Metadata Management With Git". In: *Information Systems*. DOI: [`10.1016/j.is.2016.09.002`](http://dx.doi.org/10.1016/j.is.2016.09.002). Forthcoming.
 
